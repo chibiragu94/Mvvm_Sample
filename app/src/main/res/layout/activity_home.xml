@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="handler"
+            type="com.example.mvvm_sample.modules.home.view.activity.HomeActivity.Handler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/img_location"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:paddingEnd="10dp"
+            android:onClick="@{(v) -> handler.onSelectLocationClicked(v)}"
+            android:src="@drawable/ic_location_homescreen"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_selected_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_delivery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/monster_light"
+            android:text="@string/delivery_to"
+            android:textColor="@color/text_grey"
+            android:textSize="12sp"
+            android:onClick="@{(v) -> handler.onSelectLocationClicked(v)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_location"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_selected_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/monster_regular"
+            android:text="@string/delivery_to"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:onClick="@{(v) -> handler.onSelectLocationClicked(v)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_location"
+            app:layout_constraintTop_toBottomOf="@+id/tv_delivery" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_collections"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_location" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

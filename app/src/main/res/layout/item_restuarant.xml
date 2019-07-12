@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="restuarant"
+            type="com.example.mvvm_sample.modules.restuarants.data.model.RestuarantDb" />
+
+        <variable
+            name="itemClickListener"
+            type="com.example.mvvm_sample.modules.restuarants.listener.RestuarantItemClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@android:color/white"
+        android:onClick="@{(v) -> itemClickListener.onRestuarantClicked(v,restuarant.restuarantId)}"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/img_restuarant"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_marginEnd="5dp"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@{restuarant.thumbImage}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/monster_regular"
+            android:text="@{restuarant.name}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_restuarant"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/monster_light"
+            android:maxLines="1"
+            android:text="@{restuarant.locality}"
+            android:textColor="@color/text_grey"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_restuarant"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_cost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/monster_regular"
+            android:gravity="center"
+            android:textColor="@color/green"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/img_restuarant"
+            app:layout_constraintStart_toStartOf="@+id/img_restuarant"
+            app:layout_constraintTop_toBottomOf="@+id/img_restuarant" />
+
+        <TextView
+            android:id="@+id/tv_timings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/monster_light"
+            android:text="@{restuarant.timings}"
+            android:textColor="@color/text_grey"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_restuarant"
+            app:layout_constraintTop_toBottomOf="@+id/tv_address" />
+
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_rating"
+            android:fontFamily="@font/monster_regular"
+            android:padding="4dp"
+            android:text="@{restuarant.averageRating}"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
