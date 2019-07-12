@@ -8,6 +8,7 @@ import com.example.mvvm_sample.modules.home.listener.OnCollectionResponseListene
 import com.example.mvvm_sample.networking.base.Constants.BaseUrl;
 import com.example.mvvm_sample.networking.base.Constants.RestaurantAPI;
 import com.example.mvvm_sample.networking.base.RetrofitBuilderHelper;
+import com.example.mvvm_sample.utils.AppConstant;
 
 import java.net.HttpURLConnection;
 import java.util.Collections;
@@ -33,7 +34,7 @@ public class GetRestuarantCollectionsService {
         retrofitBuilderHelper.setBaseUrl(BaseUrl.MVVM_SAMPLE_BASE_URL);
 
         RestaurantAPI restaurantAPI = retrofitBuilderHelper.createServiceWithoutBasicAuth((RestaurantAPI.class));
-        Observable<Response<RestuarantCollectionResponse>> registerObervable = restaurantAPI.fetchRestuarantsCollections("b6bc0b5e556eaccd91268fab1f04fe46", "application/json");
+        Observable<Response<RestuarantCollectionResponse>> registerObervable = restaurantAPI.fetchRestuarantsCollections(AppConstant.ZomatoKey, "application/json");
         registerObervable.subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Response<RestuarantCollectionResponse>>() {
