@@ -5,6 +5,8 @@ MVVM - Sample using Zomato API and Dunzo Location selector UI / UX
  - Livedata
  - ViewModel
  - Data binding (0ne way and two way)
+ - Retrofit
+ - RXJAva
  - Used Zomatoo developers API (https://developers.zomato.com/api) use this link for getting the zomato develoepr api
  
  --------------------------------------------
